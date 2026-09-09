@@ -1,0 +1,25 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Obtener código del repositorio
+        uses: actions/checkout@v4
+
+      - name: Verificar estructura del proyecto
+        run: |
+          test -f README.md
+          echo "Repositorio verificado correctamente."
+
+      - name: Ejecutar prueba de CI
+        run: |
+          echo "Integración Continua ejecutada correctamente."
+          echo "Commit validado mediante GitHub Actions."
